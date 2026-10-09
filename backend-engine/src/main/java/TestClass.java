@@ -36,7 +36,6 @@ public class TestClass {
             System.out.println("Input size: " + Files.size(sourceFile) + " bytes");
             System.out.println("Chunk size: " + chunkSize + " bytes");
             System.out.println("Chunks written: " + chunkManager.getTotalChunks());
-            System.out.println("Integrity verification: deferred");
             System.out.println("Output directory: " + chunksDirectory.toAbsolutePath());
 
         } catch (IOException e) {
