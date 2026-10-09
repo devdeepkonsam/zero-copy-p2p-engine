@@ -1,7 +1,6 @@
 package core;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
 import java.nio.file.Path;
@@ -23,21 +22,6 @@ public class ZeroCopyChannel {
     public static long transferChunk(Path filePath, long offset, long length, WritableByteChannel target) throws IOException {
         try (FileChannel fileChannel = FileChannel.open(filePath, StandardOpenOption.READ)) {
             return fileChannel.transferTo(offset, length, target);
-        }
-    }
-
-    /**
-     * Maps a portion of the file directly into native memory outside the JVM garbage-collected heap.
-     *
-     * @param filePath The path of the file on disk.
-     * @param offset   The file offset where mapping starts.
-     * @param length   The length of the region to map.
-     * @return A direct MappedByteBuffer pointing to the mapped area.
-     * @throws IOException If any mapping errors occur.
-     */
-    public static ByteBuffer mapChunk(Path filePath, long offset, int length) throws IOException {
-        try (FileChannel fileChannel = FileChannel.open(filePath, StandardOpenOption.READ)) {
-            return fileChannel.map(FileChannel.MapMode.READ_ONLY, offset, length);
         }
     }
 }

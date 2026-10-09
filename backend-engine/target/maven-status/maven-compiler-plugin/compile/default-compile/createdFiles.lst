@@ -1,6 +1,0 @@
-com\p2p\engine\core\ChunkManager.class
-com\p2p\engine\crypto\MerkleTree.class
-com\p2p\engine\Main.class
-com\p2p\engine\Main$1.class
-com\p2p\engine\core\ZeroCopyChannel.class
-com\p2p\engine\crypto\HashValidator.class

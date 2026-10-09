@@ -1,7 +1,6 @@
 package core;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -71,14 +70,5 @@ public class ChunkManager {
         long offset = getChunkOffset(chunkIndex);
         long length = getChunkLength(chunkIndex);
         return ZeroCopyChannel.transferChunk(filePath, offset, length, target);
-    }
-
-    /**
-     * Maps a specific chunk directly to a DirectByteBuffer for validation.
-     */
-    public ByteBuffer getMappedChunk(int chunkIndex) throws IOException {
-        long offset = getChunkOffset(chunkIndex);
-        long length = getChunkLength(chunkIndex);
-        return ZeroCopyChannel.mapChunk(filePath, offset, (int) length);
     }
 }
