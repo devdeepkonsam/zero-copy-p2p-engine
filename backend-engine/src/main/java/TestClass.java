@@ -71,10 +71,7 @@ public class TestClass {
     }
 
     private static void writeChunks(ChunkManager chunkManager,Path chunksDirectory) throws IOException {
-        for (int chunkIndex = 0;
-             chunkIndex < chunkManager.getTotalChunks();
-             chunkIndex++) {
-
+        for (int chunkIndex = 0;chunkIndex < chunkManager.getTotalChunks();chunkIndex++) {
             Path chunkFile = chunksDirectory.resolve(
                     String.format("chunk-%04d.bin", chunkIndex));
 
