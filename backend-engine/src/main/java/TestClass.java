@@ -70,9 +70,7 @@ public class TestClass {
         }
     }
 
-    private static void writeChunks(
-            ChunkManager chunkManager,
-            Path chunksDirectory) throws IOException {
+    private static void writeChunks(ChunkManager chunkManager,Path chunksDirectory) throws IOException {
         for (int chunkIndex = 0;
              chunkIndex < chunkManager.getTotalChunks();
              chunkIndex++) {
